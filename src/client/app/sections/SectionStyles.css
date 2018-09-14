@@ -4,25 +4,3 @@
     display: flex;
     flex-direction: column;
 }
-
-.gridLine {
-    display: flex;
-    flex-direction: row;
-
-    padding: calc($content-padding / 2) 0;
-
-    .itemName {
-        width: 40%;
-    }
-
-    .itemCount {
-        flex-grow: 1;
-    }
-
-    .itemAction {
-    }
-}
-
-.actionButton {
-    width: 150px;
-}

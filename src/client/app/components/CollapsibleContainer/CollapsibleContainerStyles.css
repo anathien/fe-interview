@@ -1,0 +1,42 @@
+@import "../../styles/variables.css";
+
+.collapsibleWrapper {
+    display: flex;
+    flex-direction: column;
+
+    transform: none;
+    overflow: hidden;
+
+    /* Note: max-height is set directly in the React component, as we need to know the rendered
+       content height for the transition to work properly. The following line just ensures that
+       the transition will be animated */
+    transition: max-height 0.5s ease-in-out;
+}
+
+.collapsibleContent {
+    transition: all 0.5s ease-in-out;
+    transform: none;
+    white-space: pre;
+
+    .codeContainer {
+        background-color: #efefef;
+        border: 1px solid $grey-20;
+        margin: 0.25em 1.5em 0.75em;
+        padding: 1em;
+    }
+}
+
+.open {
+    overflow: visible;
+}
+
+.collapsed {
+    overflow: hidden;
+
+    .collapsibleContent {
+        transform: translateY(-100%);
+    }
+}
+
+.expandedContentContainer {
+}

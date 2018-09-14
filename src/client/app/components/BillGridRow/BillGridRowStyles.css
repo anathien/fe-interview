@@ -1,0 +1,56 @@
+@import "../../styles/variables.css";
+
+.gridLineWrapper {
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(#6495ed, 0.3);
+    }
+}
+
+.gridLine {
+    display: flex;
+    flex-direction: row;
+
+    padding: calc($content-padding / 2) 0;
+
+    .itemName,
+    .itemCount,
+    .itemAction {
+        padding: 0 calc($content-padding / 2);
+    }
+
+    .itemName {
+        width: 40%;
+    }
+
+    .itemCount {
+        flex-grow: 1;
+    }
+}
+
+.actionButton {
+    width: 150px;
+}
+
+.transactionList {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 $content-padding $content-padding;
+}
+
+.transactionItem {
+    display: flex;
+    flex-direction: row;
+
+    font-size: 0.9em;
+    padding: calc($content-padding / 4) 0;
+
+    .transactionDate {
+        width: 30%;
+    }
+
+    .transactionAmount {
+    }
+}
