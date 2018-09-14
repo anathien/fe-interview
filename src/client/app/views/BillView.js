@@ -4,8 +4,6 @@ import { BillSection, BILL_VIEW } from "../sections/BillSection";
 
 import type { TabDescriptor } from "./components/TabContainer/TabContainer";
 
-// import styles from "./TabContainerStyles.css";
-
 type Props = {};
 
 type State = {
