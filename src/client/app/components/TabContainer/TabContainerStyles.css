@@ -1,0 +1,43 @@
+@import "../../styles/variables.css";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.tabHeader {
+    display: flex;
+    flex-direction: row;
+
+    border-bottom: 1px solid $grey-20;
+}
+
+.tabContent {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid $grey-20;
+    border-top: none;
+    padding: $content-padding;
+}
+
+.tabIndicator {
+    min-width: 100px;
+    height: 30px;
+    border: 1px solid lightgrey;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-color: $grey-20;
+    background-color: rgba($grey-20, 0.3);
+    margin-bottom: -1px;
+    cursor: pointer;
+    outline: none;
+    padding-left: $content-padding;
+    padding-right: $content-padding;
+
+    &.selected {
+        border-bottom: none;
+        background-color: $white;
+    }
+}
