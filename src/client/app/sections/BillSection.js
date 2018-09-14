@@ -1,6 +1,6 @@
 import React from "react";
 import { BillGridRow } from "../components/BillGridRow/BillGridRow";
-import { getAllBills } from "./../utils/queryUtils";
+import { getAllBills, changeBillFlag } from "./../utils/queryUtils";
 
 import styles from "./SectionStyles.css";
 
@@ -48,6 +48,16 @@ export class BillSection extends React.Component<Props, State> {
         return item.isBill !== true;
     };
 
+    handleChangeBillFlag = bill => {
+        // Note: Spinners could be added on top of the list here (and removed once the request came
+        // back, but this local db update doesn't warrant it at the moment.
+        changeBillFlag(bill).then(newBills => {
+            this.setState({
+                bills: newBills,
+            });
+        });
+    };
+
     render() {
         let filterFunction;
         let buttonText;
@@ -63,7 +73,14 @@ export class BillSection extends React.Component<Props, State> {
         return (
             <div className={styles.gridList}>
                 {this.state.bills.filter(filterFunction).map(bill => {
-                    return <BillGridRow key={bill.id} bill={bill} buttonText={buttonText} />;
+                    return (
+                        <BillGridRow
+                            key={bill.id}
+                            bill={bill}
+                            buttonText={buttonText}
+                            onActionButtonClicked={this.handleChangeBillFlag}
+                        />
+                    );
                 })}
             </div>
         );

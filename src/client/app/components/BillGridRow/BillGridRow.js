@@ -31,6 +31,13 @@ export class BillGridRow extends React.Component<Props, State> {
         });
     };
 
+    handleActionClicked = event => {
+        event.preventDefault();
+        if (this.props.onActionButtonClicked != null) {
+            this.props.onActionButtonClicked(this.props.bill);
+        }
+    };
+
     render() {
         const { bill } = this.props;
 
@@ -49,7 +56,12 @@ export class BillGridRow extends React.Component<Props, State> {
                         {(bill.transactions || []).length} transactions
                     </div>
                     <div className={styles.itemAction}>
-                        <button className={styles.actionButton}>{this.props.buttonText}</button>
+                        <button
+                            className={styles.actionButton}
+                            onClick={event => this.handleActionClicked(event)}
+                        >
+                            {this.props.buttonText}
+                        </button>
                     </div>
                 </div>
                 <CollapsibleContainer
