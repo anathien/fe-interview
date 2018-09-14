@@ -19,7 +19,7 @@
 
     border: 1px solid $grey-20;
     border-top: none;
-    padding: $content-padding;
+    padding: calc($content-padding / 2) $content-padding;
 }
 
 .tabIndicator {

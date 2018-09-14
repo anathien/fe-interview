@@ -49,17 +49,31 @@ export class BillSection extends React.Component<Props, State> {
     };
 
     render() {
-        const filterFunction =
-            this.props.viewType === BILL_VIEW.BILLS_ONLY
-                ? this.filterForBills
-                : this.filterForPotentialBills;
+        let filterFunction;
+        let buttonText;
+
+        if (this.props.viewType === BILL_VIEW.BILLS_ONLY) {
+            filterFunction = this.filterForBills;
+            buttonText = "Remove bill";
+        } else {
+            filterFunction = this.filterForPotentialBills;
+            buttonText = "Add as bill";
+        }
 
         return (
             <div className={styles.gridList}>
                 {this.state.bills.filter(filterFunction).map(bill => {
                     return (
+                        // Note: I know the specs said transaction count should be shown "under"
+                        // the bill name, but it looks way more decent this way.
                         <div key={bill.id} className={styles.gridLine}>
-                            {bill.name}
+                            <div className={styles.itemName}>{bill.name}</div>
+                            <div className={styles.itemCount}>
+                                {(bill.transactions || []).length} transactions
+                            </div>
+                            <div className={styles.itemAction}>
+                                <button className={styles.actionButton}>{buttonText}</button>
+                            </div>
                         </div>
                     );
                 })}
