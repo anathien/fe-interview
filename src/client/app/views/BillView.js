@@ -1,5 +1,6 @@
 import React from "react";
 import { TabContainer } from "../components/TabContainer/TabContainer";
+import { BillSection, BILL_VIEW } from "../sections/BillSection";
 
 import type { TabDescriptor } from "./components/TabContainer/TabContainer";
 
@@ -19,12 +20,12 @@ export class BillView extends React.Component<Props, State> {
         {
             id: "tab_bills",
             title: "Bills",
-            content: <div>alma</div>,
+            content: <BillSection viewType={BILL_VIEW.BILLS_ONLY} />,
         },
         {
             id: "tab_potential_bills",
             title: "Potential bills",
-            content: <div>korte</div>,
+            content: <BillSection viewType={BILL_VIEW.POTENTIAL_BILLS_ONLY} />,
         },
     ];
 
